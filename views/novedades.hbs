@@ -1,0 +1,162 @@
+
+<style>
+    body {	
+  background-image: url("https://images.wallpaperscraft.com/image/landscape_art_road_127350_1920x1080.jpg");
+  background-attachment: fixed, scroll;
+  background-repeat: no-repeat, repeat-y;
+}
+
+svg {
+  
+}
+
+ svg text {
+  fill: #35322a;
+  filter: url('#money');
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 120px;
+  font-weight: 900;
+}
+
+.navbar{
+  position: static;
+}
+</style>
+
+
+
+ <header>
+          <nav class="navbar navbar-expand-lg navbar-dark fixed-top ">
+            <div class="container">
+              <a class="navbar-brand" href="ver_salir"><strong>UTN</strong></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7" aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="ver_salir"><i class="fas fa-home"></i> Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/ver_login">Profile</a>
+                  </li>
+                </ul>
+                <form class="form-inline">
+                  <div class="md-form my-0">
+                        <div class="text-nowrap bd-highlight" style="width: 8rem;">
+                        <i class="fas fa-user-circle"></i> {{user}}
+                      </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </nav>
+        </header>
+
+
+
+<div class="container">
+  <svg width='1200' height='200'>
+              <filter id='money'>
+                <feMorphology in='SourceGraphic' operator='dilate' radius='2' result='expand'/>
+
+                <feOffset in='expand' dx='1' dy='1' result='shadow_1'/>
+                <feOffset in='expand' dx='2' dy='2' result='shadow_2'/>
+                <feOffset in='expand' dx='3' dy='3' result='shadow_3'/>
+                <feOffset in='expand' dx='4' dy='4' result='shadow_4'/>
+                <feOffset in='expand' dx='5' dy='5' result='shadow_5'/>
+                <feOffset in='expand' dx='6' dy='6' result='shadow_6'/>
+                <feOffset in='expand' dx='7' dy='7' result='shadow_7'/>
+                <feOffset in='expand' dx='8' dy='8' result='shadow_7'/>
+
+
+                <feMerge result='shadow'>
+                  <feMergeNode in='expand'/>
+                  <feMergeNode in='shadow_1'/>
+                  <feMergeNode in='shadow_2'/>
+                  <feMergeNode in='shadow_3'/>
+                  <feMergeNode in='shadow_4'/>
+                  <feMergeNode in='shadow_5'/>
+                  <feMergeNode in='shadow_6'/>
+                  <feMergeNode in='shadow_7'/>
+
+                </feMerge>
+
+                <feFlood flood-color='white'/>
+                <feComposite in2='shadow' operator='in' result='shadow'/>
+
+                <feMorphology in='shadow' operator='dilate' radius='1' result='border'/>
+                <feFlood flood-color='white' result='border_color'/>
+                <feComposite in2='border' operator='in' result='border'/>
+
+                <feOffset in='border' dx='1' dy='1' result='secondShadow_1'/>
+                <feOffset in='border' dx='2' dy='2' result='secondShadow_2'/>
+                <feOffset in='border' dx='3' dy='3' result='secondShadow_3'/>
+                <feOffset in='border' dx='4' dy='4' result='secondShadow_4'/>
+                <feOffset in='border' dx='5' dy='5' result='secondShadow_5'/>
+                <feOffset in='border' dx='6' dy='6' result='secondShadow_6'/>
+                <feOffset in='border' dx='7' dy='7' result='secondShadow_7'/>
+                <feOffset in='border' dx='8' dy='8' result='secondShadow_8'/>
+                <feOffset in='border' dx='9' dy='9' result='secondShadow_9'/>
+                <feOffset in='border' dx='10' dy='10' result='secondShadow_10'/>
+                <feOffset in='border' dx='11' dy='11' result='secondShadow_11'/>
+
+                <feMerge result='secondShadow'>
+                  <feMergeNode in='border'/>
+                  <feMergeNode in='secondShadow_1'/>
+                  <feMergeNode in='secondShadow_2'/>
+                  <feMergeNode in='secondShadow_3'/>
+                  <feMergeNode in='secondShadow_4'/>
+                  <feMergeNode in='secondShadow_5'/>
+                  <feMergeNode in='secondShadow_6'/>
+                  <feMergeNode in='secondShadow_7'/>
+                  <feMergeNode in='secondShadow_8'/>
+                  <feMergeNode in='secondShadow_9'/>
+                  <feMergeNode in='secondShadow_10'/>
+                  <feMergeNode in='secondShadow_11'/>
+                </feMerge>
+
+                <feImage x='0' y='0' width='1200' height='200' xlink:href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/78779/stripes.svg'/>
+                <feComposite in2='secondShadow' operator='in' result='secondShadow'/>
+
+                <feMerge>
+                  <feMergeNode in='secondShadow'/>
+                  <feMergeNode in='border'/>
+                  <feMergeNode in='shadow'/>
+                  <feMergeNode in='SourceGraphic'/>
+                </feMerge>
+              </filter>
+
+              <text dominant-baseline='middle' text-anchor='middle' x='50%' y='50%'>
+                Novedades
+              </text>
+            </svg>
+      </div>
+            
+      <div class="container">
+        <a href="/ver_nuevaNovedad" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true"><i class="fas fa-pencil-alt"></i> Agregar Novedad</a>
+        <a href="/ver_salir" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true"><i class="fas fa-power-off"></i> Salir</a>
+        <table class="table table-striped" >
+                    <thead class="thead-dark">
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Novedad</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {{#each novedades}}
+                    <tr>
+                      <th scope="row"><strong><i class="fas fa-paper-plane"></i> {{this._id}}</strong></th>
+                      <td><strong><h4><i class="fas fa-user-alt"></i> {{this.creador}}</h4> </strong></td>
+                        <td><strong><h4><i class="far fa-sticky-note"></i> {{this.novedad}}</h4> </strong></td>
+                    </tr>
+                    {{/each}}
+                    </tbody>
+                  </table>
+      </div>
+          
+
